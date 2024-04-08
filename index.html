@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>deesloy || Лотерея</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="shortcut icon" href="../img/deesloy.jpg" type="image/x-icon" />
+  </head>
+
+  <body>
+    <div class="game-board">
+
+        <div class="edit">
+          <div class="edit-prizes">
+            <div class="edit-prizes-item"><h4 class="edit-prizes-title">Выигрыш за одно совпадение</h4><input type="number" placeholder="Введите приз" id="prize1"></div>
+            <div class="edit-prizes-item"><h4 class="edit-prizes-title">Выигрыш за два совпадения</h4><input type="number" placeholder="Введите приз" id="prize2"></div>
+            <div class="edit-prizes-item"><h4 class="edit-prizes-title">Выигрыш за три совпадения</h4><input type="number" placeholder="Введите приз" id="prize3"></div>
+            <div class="edit-prizes-item"><h4 class="edit-prizes-title">Выигрыш за четыре совпадения</h4><input type="number" placeholder="Введите приз" id="prize4"></div>
+            <div class="edit-prizes-item"><h4 class="edit-prizes-title">Выигрыш за пять совпадений</h4><input type="number" placeholder="Введите приз" id="prize5"></div>
+            <div class="edit-prizes-item"><h4 class="edit-prizes-title">Выигрыш за шесть совпадений</h4><input type="number" placeholder="Введите приз" id="prize6"></div>
+          </div>
+
+          <div class="edit-btns">
+            <button class="edit-remove btn edit-btn" onclick="editMemberRemove()"></button>
+            <button class="edit-save btn edit-btn" onclick="saveData()"></button>
+            <button class="edit-add btn edit-btn" onclick="editMemberAdd()"></button>
+          </div>
+
+          <div class="edit-members">
+          </div>
+
+        </div>
+
+        <img src="./img/deesloy-logo.png" alt="" class="logo">
+        <div class="green"></div>
+        
+        <div class="table">
+          <div class="table-btns">
+          </div>
+          <div class="table-main-tickets">
+            <button class="btn table-update" onclick="updateMembers()"></button>
+
+            <div class="table-main-ticket"></div>
+            
+            <div class="main-ticket-digit"></div>
+            <div class="main-ticket-digit"></div>
+            <div class="main-ticket-digit"></div>
+            <div class="main-ticket-digit"></div>
+            <div class="main-ticket-digit"></div>
+            <div class="main-ticket-digit"></div>
+          </div>
+
+          <div class="table-members"></div>
+        </div>
+
+    </div>
+
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
