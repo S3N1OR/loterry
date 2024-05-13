@@ -463,6 +463,15 @@ input{
   background-color: #802E2E;
 }
 
+.edit-members-index,
+.edit-members-tickets,
+.edit-members-win,
+.table-members-ticket,
+.main-ticket-digit,
+.table-main-ticket{
+  font-size: 18px;
+}
+
 .none{
   display: none;
 }
