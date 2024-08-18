@@ -213,7 +213,7 @@ input{
   height: 60px;
   width: 220px;
   padding-bottom: 4px;
-  font-size: 14px;
+  font-size: 24px;
   letter-spacing: .2em;
 
   text-shadow: none;
@@ -274,13 +274,11 @@ input{
   gap: 15px;
 }
 
-.edit-members-item {
-  width: 100%;
-  column-gap: 20px;
-
+.edit-members-header {
   display: flex;
   justify-content: space-between;
 }
+
 
 .edit-members-content{
   display: flex;
@@ -308,6 +306,14 @@ input{
   justify-content: center;
 }
 
+.edit-members-item {
+  width: 100%;
+  column-gap: 20px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
 .edit-members-index,
 .edit-members-nickname,
 .edit-members-tickets,
@@ -317,7 +323,7 @@ input{
   border-radius: 50px;
   width: 170px;
 
-  font-size: 14px;
+  font-size: 18px;
   letter-spacing: .05em;
   
   display: flex;
@@ -330,7 +336,6 @@ input{
 
 .edit-members-nickname {
 }
-
 
 .edit-members-tickets {
 }
@@ -457,6 +462,7 @@ input{
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .yellow-digit{

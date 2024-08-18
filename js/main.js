@@ -1,8 +1,7 @@
 const editMembers = document.querySelector('.edit-members');
+const tableMembers = document.querySelector('.table-members');
 const editMembersItems = document.querySelectorAll('.edit-members-item');
 const edit = document.querySelector('.edit');
-
-const tableMembers = document.querySelector('.table-members');
 
 let countEditMember = 0;
 
@@ -24,23 +23,29 @@ function saveData() {
 function loadData() {
   const savedData = JSON.parse(localStorage.getItem('savedData'));
 
-  editMembers.innerHTML = '';
+  editMembers.innerHTML = `
+      <div class="edit-members-header">
+          <div class="edit-members-content"><h2>Номер</h2></div>
+          <div class="edit-members-content"><h2>NickName</h2></div>
+          <div class="edit-members-content"><h2>Купленные билеты</h2></div>
+          <div class="edit-members-content"><h2>Выигрыш</h2></div>
+      </div>`;
 
   if (savedData) {
-    savedData.forEach((data, index) => {
-      const newItem = document.createElement('div');
-      newItem.classList.add('edit-members-item');
+      savedData.forEach((data, index) => {
+          const newItem = document.createElement('div');
+          newItem.classList.add('edit-members-item');
 
-      if (index === 0) {
-        newItem.innerHTML = `<div class="edit-members-content"><h2>Номер</h2><div class="edit-members-index">${index + 1}</div></div><div class="edit-members-content"><h2>NickName</h2><input class="edit-members-nickname" value="${data.nickname}"></input></div><div class="edit-members-content"><h2>купленные<br>билеты</h2><input type="number" class="edit-members-tickets" value="${data.tickets}"></input></div><div class="edit-members-content"><h2>Выигрыш</h2><div class="edit-members-win">$0</div></div>`;
-      } else {
-        newItem.innerHTML = `<div class="edit-members-index">${index + 1}</div><input class="edit-members-nickname" value="${data.nickname}"></input><input type="number" class="edit-members-tickets" value="${data.tickets}"></input><div class="edit-members-win">$0</div>`;
-      }
-      
-      editMembers.appendChild(newItem);
-    });
+          newItem.innerHTML = `
+            <div class="edit-members-index">${index + 1}</div>
+            <input class="edit-members-nickname" value="${data.nickname}"></input>
+            <input type="number" class="edit-members-tickets" value="${data.tickets}"></input>
+            <div class="edit-members-win">$0</div>`;
 
-    countEditMember = savedData.length;
+          editMembers.appendChild(newItem);
+      });
+
+      countEditMember = savedData.length;
   }
 }
 
@@ -68,27 +73,20 @@ function loadPrizes() {
   }
 }
 
-window.onload = function() {
-  loadPrizes();
-  loadData();
-};
-
 function editMemberAdd(){
   countEditMember++;
 
   let newEditMembersItem = document.createElement('div');
   newEditMembersItem.classList.add('edit-members-item');
 
-  if (countEditMember === 1) {
-    newEditMembersItem.innerHTML = `<div class="edit-members-content"><h2>Номер</h2><div class="edit-members-index">${countEditMember}</div></div><div class="edit-members-content"><h2>NickName</h2><input class="edit-members-nickname"></input></div><div class="edit-members-content"><h2>купленные<br>билеты</h2><input type="number" class="edit-members-tickets"></input></div><div class="edit-members-content"><h2>Выигрыш</h2><div class="edit-members-win">$0</div></div>`;
-  } else {
-    newEditMembersItem.innerHTML = `<div class="edit-members-index">${countEditMember}</div><input class="edit-members-nickname"></input><input type="number" class="edit-members-tickets"></input><div class="edit-members-win">$0</div>`;
-  }
+  newEditMembersItem.innerHTML = `
+      <div class="edit-members-index">${countEditMember}</div>
+      <input class="edit-members-nickname"></input>
+      <input type="number" class="edit-members-tickets"></input>
+      <div class="edit-members-win">$0</div>
+    `;
 
   editMembers.appendChild(newEditMembersItem);
-
-  nicknames.push('');
-  console.log(nicknames);
 }
 
 
@@ -96,12 +94,13 @@ function editMemberRemove(){
   if(countEditMember > 0){
     countEditMember--;
     editMembers.removeChild(editMembers.lastChild);
-    
-    
-    nicknames.pop();
-    console.log(nicknames);
   }
 }
+
+window.onload = function() {
+  loadPrizes();
+  loadData();
+};
 
 function generateRandomTicket() {
   const min = 100000;
